@@ -1,0 +1,52 @@
+application: jicelebrationstest
+version: 1
+runtime: php
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /css/(.*)
+  static_files: css/\1
+  upload: css/(.*)
+
+- url: /scripts/(.*)
+  static_files: scripts/\1
+  upload: scripts/(.*)
+  application_readable: true
+
+- url: /images/(.*)
+  static_files: images/\1
+  upload: images/(.*)
+  application_readable: true
+
+- url: /polls/(.*)
+  static_files: post/\1
+  upload: post/(.*)
+  application_readable: true
+
+- url: /(.*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF))$
+  static_files: \1
+  upload: .*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF)$
+  application_readable: true
+
+- url: .*admin.*
+  script: admin.php
+
+- url: .*qod.*
+  script: qod.php
+
+- url: .*reg.*
+  script: reg.php
+
+- url: .*saveinfo.*
+  script: saveinfo.php  
+
+- url: .*usercp.*
+  script: usercp.php  
+
+- url: (.*)
+  script: index.php
