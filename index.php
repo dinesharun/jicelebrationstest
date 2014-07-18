@@ -108,49 +108,52 @@
 			$ipParsed = $userIPs[0];
 		}
 		
-		$con = mysql_connect("localhost","guest","pass");
-		
-		if(mysql_errno() != 0)
-		{
-		  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
-		  $mysqlerr = 1;
-		}
-		else
-		{
-		  mysql_select_db("jas15anniv", $con);
+    if(0)
+    {
+      $con = mysql_connect("localhost","guest","pass");
+      
+      if(mysql_errno() != 0)
+      {
+        if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
+        $mysqlerr = 1;
+      }
+      else
+      {
+        mysql_select_db("jas15anniv", $con);
 
-		  if(mysql_errno() != 0)
-		  {
-			if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
-			$mysqlerr = 2;
-		  }
-		  else
-		  {
-			$query = 'SELECT UNAME, NAME, EMAIL, LEVEL FROM userinfo WHERE IPADDR="' . $ipParsed . '"';
+        if(mysql_errno() != 0)
+        {
+          if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
+          $mysqlerr = 2;
+          }
+          else
+          {
+          $query = 'SELECT UNAME, NAME, EMAIL, LEVEL FROM userinfo WHERE IPADDR="' . $ipParsed . '"';
 
-			$result = mysql_query($query);
+          $result = mysql_query($query);
 
-			if(mysql_errno() != 0)
-			{
-			  if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
-			  $mysqlerr = 3;
-			}
-			else
-			{
-			  if($row = mysql_fetch_array($result))
-			  {
-				$uName = $row['UNAME'];
-				$fullName = $row['NAME'];
-				$emailID  = $row['EMAIL'];
-				$preLevel = $row['LEVEL'];
-			  }
-			  else
-			  {
-				$mysqlerr = 4;
-			  }
-			}
-		  }
-		}
+          if(mysql_errno() != 0)
+          {
+            if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+            $mysqlerr = 3;
+          }
+          else
+          {
+            if($row = mysql_fetch_array($result))
+            {
+            $uName = $row['UNAME'];
+            $fullName = $row['NAME'];
+            $emailID  = $row['EMAIL'];
+            $preLevel = $row['LEVEL'];
+            }
+            else
+            {
+            $mysqlerr = 4;
+            }
+          }
+        }
+      }
+    }
 		
 		if($useEcho == 1) echo "mysqlerr = ". $mysqlerr .'<br />';
 		
