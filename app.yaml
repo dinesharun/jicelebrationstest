@@ -28,10 +28,14 @@ handlers:
   upload: post/(.*)
   application_readable: true
 
-- url: /(.*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF|HTM|HTML))$
+- url: /(.*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF|HTM|HTML|htm|html))$
   static_files: \1
-  upload: .*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF|HTM|HTML)$
+  upload: .*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF|HTM|HTML|htm|html)$
   application_readable: true
+
+- url: /usage.html
+  static_files: usage.html
+  upload: usage.html
 
 - url: .*admin.*
   script: admin.php
