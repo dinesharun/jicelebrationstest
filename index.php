@@ -834,7 +834,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt32Table" style="margin-left:3%;"> <?php {PrintEvtMembers(32);} ?> </div>
 			</td>
 		</tr>
@@ -877,7 +877,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt20Table" style="margin-left:3%;"> <?php {PrintEvtMembers(20);} ?> </div>
 			</td>
 		</tr>
@@ -925,7 +925,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt11Table" style="margin-left:3%;"> <?php {PrintEvtMembers(11);} ?> </div>
 			</td>
 		</tr>
@@ -969,7 +969,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt17Table" style="margin-left:3%;"> <?php {PrintEvtMembers(17);} ?> </div>
 			</td>
 		</tr>
@@ -1013,7 +1013,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt5Table" style="margin-left:3%;"> <?php {PrintEvtMembers(5);} ?> </div>
 			</td>
 		</tr>
@@ -1057,7 +1057,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt14Table" style="margin-left:3%;"> <?php {PrintEvtMembers(14);} ?> </div>
 			</td>
 		</tr>
@@ -1102,7 +1102,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt1Table" style="margin-left:3%;"> <?php {PrintEvtMembers(1);} ?> </div>
 			</td>
 		</tr>
@@ -1147,7 +1147,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt21Table" style="margin-left:3%;"> <?php {PrintEvtMembers(21);} ?> </div>
 			</td>
 		</tr>
@@ -1192,7 +1192,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt10Table" style="margin-left:3%;"> <?php {PrintEvtMembers(10);} ?> </div>
 			</td>
 		</tr>
@@ -1236,7 +1236,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt30Table" style="margin-left:3%;"> <?php {PrintEvtMembers(30);} ?> </div>
 			</td>
 		</tr>
@@ -1278,7 +1278,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt34Table" style="margin-left:3%;"> <?php {PrintEvtMembers(34);} ?> </div>
 			</td>
 		</tr>
@@ -1324,7 +1324,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt2Table" style="margin-left:3%;"> <?php {PrintEvtMembers(2);} ?> </div>
 			</td>
 		</tr>
@@ -1369,7 +1369,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt35Table" style="margin-left:3%;"> <?php {PrintEvtMembers(35);} ?> </div>
 			</td>
 		</tr>
@@ -1416,7 +1416,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt24Table" style="margin-left:3%;"> <?php {PrintEvtMembers(24);} ?> </div>
 			</td>
 		</tr>
@@ -1463,7 +1463,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt3Table" style="margin-left:3%;"> <?php {PrintEvtMembers(3);} ?> </div>
 			</td>
 		</tr>
@@ -1507,7 +1507,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt0Table" style="margin-left:3%;"> <?php {PrintEvtMembers(0);} ?> </div>
 			</td>
 		</tr>
@@ -1556,7 +1556,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt4Table" style="margin-left:3%;"> <?php {PrintEvtMembers(4);} ?> </div>
 			</td>
 		</tr>
@@ -1601,7 +1601,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt8Table" style="margin-left:3%;"> <?php {PrintEvtMembers(8);} ?> </div>
 			</td>
 		</tr>
@@ -1646,7 +1646,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt12Table" style="margin-left:3%;"> <?php {PrintEvtMembers(12);} ?> </div>
 			</td>
 		</tr>
@@ -1691,7 +1691,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt6Table" style="margin-left:3%;"> <?php {PrintEvtMembers(6);} ?> </div>
 			</td>
 		</tr>
@@ -1734,7 +1734,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt19Table" style="margin-left:3%;"> <?php {PrintEvtMembers(19);} ?> </div>
 			</td>
 		</tr>
@@ -1777,7 +1777,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt33Table" style="margin-left:3%;"> <?php {PrintEvtMembers(33);} ?> </div>
 			</td>
 		</tr>
@@ -1821,7 +1821,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt23Table" style="margin-left:3%;"> <?php {PrintEvtMembers(23);} ?> </div>
 			</td>
 		</tr>
@@ -1865,7 +1865,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt15Table" style="margin-left:3%;"> <?php {PrintEvtMembers(15);} ?> </div>
 			</td>
 		</tr>
@@ -1909,7 +1909,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt27Table" style="margin-left:3%;"> <?php {PrintEvtMembers(27);} ?> </div>
 			</td>
 		</tr>
@@ -1952,7 +1952,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt16Table" style="margin-left:3%;"> <?php {PrintEvtMembers(16);} ?> </div>
 			</td>
 		</tr>
@@ -1997,7 +1997,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt28Table" style="margin-left:3%;"> <?php {PrintEvtMembers(28);} ?> </div>
 			</td>
 		</tr>
@@ -2040,7 +2040,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt25Table" style="margin-left:3%;"> <?php {PrintEvtMembers(25);} ?> </div>
 			</td>
 		</tr>
@@ -2086,7 +2086,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt7Table" style="margin-left:3%;"> <?php {PrintEvtMembers(7);} ?> </div>
 			</td>
 		</tr>
@@ -2131,7 +2131,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt22Table" style="margin-left:3%;"> <?php {PrintEvtMembers(22);} ?> </div>
 			</td>
 		</tr>
@@ -2175,7 +2175,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt26Table" style="margin-left:3%;"> <?php {PrintEvtMembers(26);} ?> </div>
 			</td>
 		</tr>
@@ -2218,7 +2218,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt31Table" style="margin-left:3%;"> <?php {PrintEvtMembers(31);} ?> </div>
 			</td>
 		</tr>
@@ -2262,7 +2262,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt29Table" style="margin-left:3%;"> <?php {PrintEvtMembers(29);} ?> </div>
 			</td>
 		</tr>
@@ -2309,7 +2309,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt18Table" style="margin-left:3%;"> <?php {PrintEvtMembers(18);} ?> </div>
 			</td>
 		</tr>
@@ -2353,7 +2353,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt9Table" style="margin-left:3%;"> <?php {PrintEvtMembers(9);} ?> </div>
 			</td>
 		</tr>
@@ -2399,7 +2399,7 @@
 			<td style="width:1%;vertical-align:middle;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
+			<td	<?php { echo 'style="width:69%;"';}  ?> >
 				<div id="evt13Table" style="margin-left:3%;"> <?php {PrintEvtMembers(13);} ?> </div>
 			</td>
 		</tr>
