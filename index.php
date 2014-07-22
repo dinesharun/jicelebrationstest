@@ -108,48 +108,45 @@
 			$ipParsed = $userIPs[0];
 		}
 		
-    if(0)
+    $con = mysql_connect("localhost","guest","pass");
+    
+    if(mysql_errno() != 0)
     {
-      $con = mysql_connect("localhost","guest","pass");
-      
+      if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
+      $mysqlerr = 1;
+    }
+    else
+    {
+      mysql_select_db("jas15anniv", $con);
+
       if(mysql_errno() != 0)
       {
-        if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
-        $mysqlerr = 1;
-      }
-      else
-      {
-        mysql_select_db("jas15anniv", $con);
+        if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
+        $mysqlerr = 2;
+        }
+        else
+        {
+        $query = 'SELECT UNAME, NAME, EMAIL, LEVEL FROM userinfo WHERE IPADDR="' . $ipParsed . '"';
+
+        $result = mysql_query($query);
 
         if(mysql_errno() != 0)
         {
-          if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
-          $mysqlerr = 2;
+          if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+          $mysqlerr = 3;
+        }
+        else
+        {
+          if($row = mysql_fetch_array($result))
+          {
+          $uName = $row['UNAME'];
+          $fullName = $row['NAME'];
+          $emailID  = $row['EMAIL'];
+          $preLevel = $row['LEVEL'];
           }
           else
           {
-          $query = 'SELECT UNAME, NAME, EMAIL, LEVEL FROM userinfo WHERE IPADDR="' . $ipParsed . '"';
-
-          $result = mysql_query($query);
-
-          if(mysql_errno() != 0)
-          {
-            if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
-            $mysqlerr = 3;
-          }
-          else
-          {
-            if($row = mysql_fetch_array($result))
-            {
-            $uName = $row['UNAME'];
-            $fullName = $row['NAME'];
-            $emailID  = $row['EMAIL'];
-            $preLevel = $row['LEVEL'];
-            }
-            else
-            {
-            $mysqlerr = 4;
-            }
+          $mysqlerr = 4;
           }
         }
       }
@@ -210,15 +207,15 @@
 		
 		$query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtId . ' ORDER BY eventinfo.GROUPNAME ASC ';
 
-        $result = mysql_query($query);
+    $result = mysql_query($query);
 
-        if(mysql_errno() != 0)
-        {
-          if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
-          $mysqlerr = 3;
-        }
-        else
-        {
+    if(mysql_errno() != 0)
+    {
+      if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+      $mysqlerr = 3;
+    }
+    else
+    {
 		  echo '<h3> Registration </h3>';
 		  echo '<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->';
 		  echo '<table style="width:87%;text-align:center;margin-left:3%;">';
