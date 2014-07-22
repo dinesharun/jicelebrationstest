@@ -199,7 +199,7 @@ int main(int argc, char* argv[])
       /* Now filter the results and write files */
       for(i=0;i<EVT_COUNT;i++)
       {
-        sprintf_s(&wordBuf[0], WORD_BUF_SIZE, "evt_%d", i);
+        sprintf_s(&wordBuf[0], WORD_BUF_SIZE, "evt_%d.htm", i);
         fopen_s(&fp, &wordBuf[0], "w");
 
         if(fp != NULL)

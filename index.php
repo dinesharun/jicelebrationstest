@@ -328,7 +328,7 @@
     }
     else
     {
-      $file = "data/evt_" . $evtId;
+      $file = "data/evt_" . $evtId . ".htm";
       echo file_get_contents($file);
     }
 	}
