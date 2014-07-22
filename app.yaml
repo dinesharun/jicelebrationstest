@@ -18,6 +18,11 @@ handlers:
   upload: scripts/(.*)
   application_readable: true
 
+- url: /data/(.*)
+  static_files: data/\1
+  upload: data/(.*)
+  application_readable: true
+
 - url: /images/(.*)
   static_files: images/\1
   upload: images/(.*)
