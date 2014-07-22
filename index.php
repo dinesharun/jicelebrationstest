@@ -205,123 +205,131 @@
 		global $evtMemberCount;
 		global $stopRegForEvt;
 		
-		$query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtId . ' ORDER BY eventinfo.GROUPNAME ASC ';
-
-    $result = mysql_query($query);
-
-    if(mysql_errno() != 0)
+    if(noReg == 0)
     {
-      if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
-      $mysqlerr = 3;
+      $query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtId . ' ORDER BY eventinfo.GROUPNAME ASC ';
+
+      $result = mysql_query($query);
+
+      if(mysql_errno() != 0)
+      {
+        if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+        $mysqlerr = 3;
+      }
+      else
+      {
+        echo '<h3> Registration </h3>';
+        echo '<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->';
+        echo '<table style="width:87%;text-align:center;margin-left:3%;">';
+        
+        $i = 1;
+        $userRegistered = 0;
+        $userName = $fullName;
+        $userIP   = $ipParsed;
+        
+        if($evtMemberCount[$evtId] == 1)
+        {
+          echo '<tr style="width:100%;background-color:#666666;"><td style="width:10%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Sl.No. </td>';
+          echo '<td style="width:30%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Name </td>';
+          echo '<td style="width:60%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Email ID </td></tr>';
+          
+          while($row = mysql_fetch_array($result))
+          {
+          if($ipParsed == $row['IPADDR'])
+          {
+            $userRegistered = 1;
+            $userName = $row['NAME'];
+            $userIP   = $row['IPADDR'];
+          }
+          echo '<tr style="width:100%;"><td style="width:10%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $i . '</td>';
+          echo '<td style="width:30%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
+          echo '<td style="width:60%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
+          $i++;
+          }
+        }
+        else
+        {
+          echo '<tr style="width:100%;background-color:#666666;"><td style="width:6%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Sl.No. </td>';
+          echo '<td style="width:21%;border:1px solid black;color:#cccccc;vertical-align:middle;"> GroupName </td>';
+          echo '<td style="width:21%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Name </td>';
+          echo '<td style="width:51%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Email ID </td></tr>';
+        
+          $prevGroupName = "";
+          $teamSize = $evtMemberCount[$evtId];
+          $j = 0;
+          
+          while($row = mysql_fetch_array($result))
+          {
+          if($ipParsed == $row['IPADDR'])
+          {
+            $userRegistered = 1;
+            $userName = $row['NAME'];
+            $userIP   = $row['IPADDR'];
+          }
+          if($prevGroupName != $row['GROUPNAME'])
+          {
+            for($j=$teamSize;$j<$evtMemberCount[$evtId];$j++)
+            {
+              echo '<tr style="width:100%;">';
+              echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td>';
+              echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td></tr>';
+            }
+            $teamSize = 1;
+            
+            echo '<tr style="width:100%;"><td style="width:6%;border:1px solid black;font-family:philosopher;vertical-align:middle;" rowspan="' . $evtMemberCount[$evtId] . '">' . $i . '</td>';
+            echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;" rowspan="' . $evtMemberCount[$evtId] . '">' . $row['GROUPNAME'] . '</td>';
+            echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
+            echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
+            $i++;
+          }
+          else
+          {
+            echo '<tr style="width:100%;">';
+            echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
+            echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
+            $teamSize++;
+          }
+          $prevGroupName = $row['GROUPNAME'];
+          
+          }
+          for($j=$teamSize;$j<$evtMemberCount[$evtId];$j++)
+          {
+            echo '<tr style="width:100%;">';
+            echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td>';
+            echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td></tr>';
+          }
+        }
+        
+        echo '</table>';
+        
+        if($stopRegForEvt[$evtId] != 1)
+        {
+          /* Group Event */
+          if($evtMemberCount[$evtId] != 1)
+          {
+          echo '<br />';
+          /* echo '<span  style="margin-left:3%;">Group ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   :&nbsp;&nbsp;&nbsp;</span><input id="evt' . $evtId . 'GroupId" name="groupid"  class="ipAdText" type="text" val="" /><br />'. "\r\n"; */
+          echo '<span  style="margin-left:3%;">Group Name :&nbsp;&nbsp;&nbsp;</span><input id="evt'  .$evtId . 'GroupName" name="groupname" class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
+          }
+          
+          if($userRegistered == 0) {
+          echo '<button id="evt' . $evtId . 'btn" class="evtRegBtn" type="submit" value="Reg" onclick="postRegInfo(0, ' . $evtId . ', 1, ' . "'" . $userName . "'" . ', ' . "'" . $userIP . "'" . ', 0,' . "''," . "'#evt" . $evtId . "Table'" . ')"> Register for this Event </button>'; }
+          else {
+          echo '<button id="evt' . $evtId . 'btn" class="evtRegBtn" style="color:#ff0000;" type="submit" value="Unreg" onclick="postRegInfo(0, ' . $evtId . ', 0, ' . "'" . $userName . "'" . ', ' . "'" . $userIP . "'" . ', 0,' . "''," . "'#evt" . $evtId . "Table'" . ')"> Unregister from this Event </button>';
+          }
+        }
+        else
+        {
+          echo '<br />';
+          echo '<div style="text-align:left;margin-left:3%;width:93%;color:#3333cc;font-weight:bold;"> Event Closed </div>';
+        }
+      }
     }
     else
     {
-		  echo '<h3> Registration </h3>';
-		  echo '<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->';
-		  echo '<table style="width:87%;text-align:center;margin-left:3%;">';
-		  
-		  $i = 1;
-		  $userRegistered = 0;
-		  $userName = $fullName;
-		  $userIP   = $ipParsed;
-		  
-		  if($evtMemberCount[$evtId] == 1)
-		  {
-			  echo '<tr style="width:100%;background-color:#666666;"><td style="width:10%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Sl.No. </td>';
-			  echo '<td style="width:30%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Name </td>';
-			  echo '<td style="width:60%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Email ID </td></tr>';
-				
-			  while($row = mysql_fetch_array($result))
-			  {
-				if($ipParsed == $row['IPADDR'])
-				{
-					$userRegistered = 1;
-					$userName = $row['NAME'];
-					$userIP   = $row['IPADDR'];
-				}
-				echo '<tr style="width:100%;"><td style="width:10%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $i . '</td>';
-				echo '<td style="width:30%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
-				echo '<td style="width:60%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
-				$i++;
-			  }
-		  }
-		  else
-		  {
-			  echo '<tr style="width:100%;background-color:#666666;"><td style="width:6%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Sl.No. </td>';
-			  echo '<td style="width:21%;border:1px solid black;color:#cccccc;vertical-align:middle;"> GroupName </td>';
-			  echo '<td style="width:21%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Name </td>';
-			  echo '<td style="width:51%;border:1px solid black;color:#cccccc;vertical-align:middle;"> Email ID </td></tr>';
-			
-			  $prevGroupName = "";
-			  $teamSize = $evtMemberCount[$evtId];
-			  $j = 0;
-			  
-			  while($row = mysql_fetch_array($result))
-			  {
-				if($ipParsed == $row['IPADDR'])
-				{
-					$userRegistered = 1;
-					$userName = $row['NAME'];
-					$userIP   = $row['IPADDR'];
-				}
-				if($prevGroupName != $row['GROUPNAME'])
-				{
-					for($j=$teamSize;$j<$evtMemberCount[$evtId];$j++)
-					{
-						echo '<tr style="width:100%;">';
-						echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td>';
-						echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td></tr>';
-					}
-					$teamSize = 1;
-					
-					echo '<tr style="width:100%;"><td style="width:6%;border:1px solid black;font-family:philosopher;vertical-align:middle;" rowspan="' . $evtMemberCount[$evtId] . '">' . $i . '</td>';
-					echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;" rowspan="' . $evtMemberCount[$evtId] . '">' . $row['GROUPNAME'] . '</td>';
-					echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
-					echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
-					$i++;
-				}
-				else
-				{
-					echo '<tr style="width:100%;">';
-					echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
-					echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
-					$teamSize++;
-				}
-				$prevGroupName = $row['GROUPNAME'];
-				
-			  }
-			  for($j=$teamSize;$j<$evtMemberCount[$evtId];$j++)
-			  {
-				  echo '<tr style="width:100%;">';
-				  echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td>';
-				  echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td></tr>';
-			  }
-		  }
-		  
-		  echo '</table>';
-		  
-		  if($stopRegForEvt[$evtId] != 1)
-		  {
-			  /* Group Event */
-			  if($evtMemberCount[$evtId] != 1)
-			  {
-				echo '<br />';
-				/* echo '<span  style="margin-left:3%;">Group ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   :&nbsp;&nbsp;&nbsp;</span><input id="evt' . $evtId . 'GroupId" name="groupid"  class="ipAdText" type="text" val="" /><br />'. "\r\n"; */
-				echo '<span  style="margin-left:3%;">Group Name :&nbsp;&nbsp;&nbsp;</span><input id="evt'  .$evtId . 'GroupName" name="groupname" class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
-			  }
-			  
-			  if($userRegistered == 0) {
-				echo '<button id="evt' . $evtId . 'btn" class="evtRegBtn" type="submit" value="Reg" onclick="postRegInfo(0, ' . $evtId . ', 1, ' . "'" . $userName . "'" . ', ' . "'" . $userIP . "'" . ', 0,' . "''," . "'#evt" . $evtId . "Table'" . ')"> Register for this Event </button>'; }
-			  else {
-				echo '<button id="evt' . $evtId . 'btn" class="evtRegBtn" style="color:#ff0000;" type="submit" value="Unreg" onclick="postRegInfo(0, ' . $evtId . ', 0, ' . "'" . $userName . "'" . ', ' . "'" . $userIP . "'" . ', 0,' . "''," . "'#evt" . $evtId . "Table'" . ')"> Unregister from this Event </button>';
-			  }
-		  }
-		  else
-		  {
-			echo '<br />';
-			echo '<div style="text-align:left;margin-left:3%;width:93%;color:#3333cc;font-weight:bold;"> Event Closed </div>';
-		  }
-		}
+      $file = "/data/evt_" . $evtId;
+      echo file_get_contents($file);
+    }
 	}
 	
 	function IsAnswerPresent()
@@ -827,7 +835,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt32Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(32);} ?> </div>
+				<div id="evt32Table" style="margin-left:3%;"> <?php {PrintEvtMembers(32);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -870,7 +878,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt20Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(20);} ?> </div>
+				<div id="evt20Table" style="margin-left:3%;"> <?php {PrintEvtMembers(20);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -918,7 +926,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt11Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(11);} ?> </div>
+				<div id="evt11Table" style="margin-left:3%;"> <?php {PrintEvtMembers(11);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -962,7 +970,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt17Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(17);} ?> </div>
+				<div id="evt17Table" style="margin-left:3%;"> <?php {PrintEvtMembers(17);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1006,7 +1014,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt5Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(5);} ?> </div>
+				<div id="evt5Table" style="margin-left:3%;"> <?php {PrintEvtMembers(5);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1050,7 +1058,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt14Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(14);} ?> </div>
+				<div id="evt14Table" style="margin-left:3%;"> <?php {PrintEvtMembers(14);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1095,7 +1103,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt1Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(1);} ?> </div>
+				<div id="evt1Table" style="margin-left:3%;"> <?php {PrintEvtMembers(1);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1140,7 +1148,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt21Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(21);} ?> </div>
+				<div id="evt21Table" style="margin-left:3%;"> <?php {PrintEvtMembers(21);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1185,7 +1193,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt10Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(10);} ?> </div>
+				<div id="evt10Table" style="margin-left:3%;"> <?php {PrintEvtMembers(10);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1229,7 +1237,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt30Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(30);} ?> </div>
+				<div id="evt30Table" style="margin-left:3%;"> <?php {PrintEvtMembers(30);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1271,7 +1279,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt34Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(34);} ?> </div>
+				<div id="evt34Table" style="margin-left:3%;"> <?php {PrintEvtMembers(34);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1317,7 +1325,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt2Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(2);} ?> </div>
+				<div id="evt2Table" style="margin-left:3%;"> <?php {PrintEvtMembers(2);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1362,7 +1370,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt35Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(35);} ?> </div>
+				<div id="evt35Table" style="margin-left:3%;"> <?php {PrintEvtMembers(35);} ?> </div>
 			</td>
 		</tr>
 	</table>	
@@ -1409,7 +1417,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt24Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(24);} ?> </div>
+				<div id="evt24Table" style="margin-left:3%;"> <?php {PrintEvtMembers(24);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1456,7 +1464,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt3Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(3);} ?> </div>
+				<div id="evt3Table" style="margin-left:3%;"> <?php {PrintEvtMembers(3);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1500,7 +1508,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt0Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(0);} ?> </div>
+				<div id="evt0Table" style="margin-left:3%;"> <?php {PrintEvtMembers(0);} ?> </div>
 			</td>
 		</tr>
 	</table>	
@@ -1549,7 +1557,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt4Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(4);} ?> </div>
+				<div id="evt4Table" style="margin-left:3%;"> <?php {PrintEvtMembers(4);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1594,7 +1602,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt8Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(8);} ?> </div>
+				<div id="evt8Table" style="margin-left:3%;"> <?php {PrintEvtMembers(8);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1639,7 +1647,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt12Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(12);} ?> </div>
+				<div id="evt12Table" style="margin-left:3%;"> <?php {PrintEvtMembers(12);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1684,7 +1692,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt6Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(6);} ?> </div>
+				<div id="evt6Table" style="margin-left:3%;"> <?php {PrintEvtMembers(6);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1727,7 +1735,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt19Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(19);} ?> </div>
+				<div id="evt19Table" style="margin-left:3%;"> <?php {PrintEvtMembers(19);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1770,7 +1778,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt33Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(33);} ?> </div>
+				<div id="evt33Table" style="margin-left:3%;"> <?php {PrintEvtMembers(33);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1814,7 +1822,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt23Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(23);} ?> </div>
+				<div id="evt23Table" style="margin-left:3%;"> <?php {PrintEvtMembers(23);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1858,7 +1866,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt15Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(15);} ?> </div>
+				<div id="evt15Table" style="margin-left:3%;"> <?php {PrintEvtMembers(15);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1902,7 +1910,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt27Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(27);} ?> </div>
+				<div id="evt27Table" style="margin-left:3%;"> <?php {PrintEvtMembers(27);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1945,7 +1953,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt16Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(16);} ?> </div>
+				<div id="evt16Table" style="margin-left:3%;"> <?php {PrintEvtMembers(16);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1990,7 +1998,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt28Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(28);} ?> </div>
+				<div id="evt28Table" style="margin-left:3%;"> <?php {PrintEvtMembers(28);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -2033,7 +2041,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt25Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(25);} ?> </div>
+				<div id="evt25Table" style="margin-left:3%;"> <?php {PrintEvtMembers(25);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -2079,7 +2087,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt7Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(7);} ?> </div>
+				<div id="evt7Table" style="margin-left:3%;"> <?php {PrintEvtMembers(7);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -2124,7 +2132,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt22Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(22);} ?> </div>
+				<div id="evt22Table" style="margin-left:3%;"> <?php {PrintEvtMembers(22);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -2168,7 +2176,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt26Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(26);} ?> </div>
+				<div id="evt26Table" style="margin-left:3%;"> <?php {PrintEvtMembers(26);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -2211,7 +2219,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt31Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(31);} ?> </div>
+				<div id="evt31Table" style="margin-left:3%;"> <?php {PrintEvtMembers(31);} ?> </div>
 			</td>
 		</tr>
 	</table>			
@@ -2255,7 +2263,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt29Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(29);} ?> </div>
+				<div id="evt29Table" style="margin-left:3%;"> <?php {PrintEvtMembers(29);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -2302,7 +2310,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt18Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(18);} ?> </div>
+				<div id="evt18Table" style="margin-left:3%;"> <?php {PrintEvtMembers(18);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -2346,7 +2354,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt9Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(9);} ?> </div>
+				<div id="evt9Table" style="margin-left:3%;"> <?php {PrintEvtMembers(9);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -2392,7 +2400,7 @@
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:69%;"';} else { echo 'style="width:0%;"'; } ?> >
-				<div id="evt13Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(13);} ?> </div>
+				<div id="evt13Table" style="margin-left:3%;"> <?php {PrintEvtMembers(13);} ?> </div>
 			</td>
 		</tr>
 	</table>
