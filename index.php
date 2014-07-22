@@ -509,7 +509,7 @@
 	
 	<!-- Home Section -->
 	<a id="home" name="home"> &nbsp; </a><br /><div class="lineSepLong"></div>
-	<div class="mainHeading"> JASMIN Infotech 15th Year Anniversary Celebrations </div><div class="lineSepLong"></div><br /><br />
+	<div class="mainHeading"> JASMIN Infotech 16th Year Anniversary Celebrations - Test </div><div class="lineSepLong"></div><br /><br />
 	<img src="images/header.png" style="width:72%;margin-left:12%;margin-right:12%;" /><br /><br /><div class="lineSepLong"></div>
 
 	<div class="todayDiv"> 
@@ -1019,7 +1019,7 @@
 		<tr style="width:100%;">
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
 				<h3> Description </h3>
-				Playing mind games. Not everyone can remember everything. Let’s find how much you can remember…
+				Playing mind games. Not everyone can remember everything. Letï¿½s find how much you can rememberï¿½
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 				<h3> Rules </h3> 
 				 <ol>
@@ -1198,7 +1198,7 @@
 		<tr style="width:100%;">
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
 				<h3> Description </h3>
-				Come dude let’s play cricket!!!
+				Come dude letï¿½s play cricket!!!
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 				<h3> Rules </h3> 
 				 <ol>
@@ -1652,7 +1652,7 @@
 		<tr style="width:100%;">
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
 				<h3> Description </h3>
-				“Action speaks louder than words”. Show your words through actions.
+				ï¿½Action speaks louder than wordsï¿½. Show your words through actions.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 				<h3> Rules </h3> 
 				 <ol>
@@ -1827,7 +1827,7 @@
 		<tr style="width:100%;">
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
 				<h3> Description </h3>
-				Event for ‘professional level’ bike riders. Try to balance by driving slow.
+				Event for ï¿½professional levelï¿½ bike riders. Try to balance by driving slow.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 				<h3> Rules </h3> 
 				 <ol>
@@ -1958,7 +1958,7 @@
 		<tr style="width:100%;">
 			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
 				<h3> Description </h3>
-				Is drinking a cool drink easy? Why don’t you try and tell.
+				Is drinking a cool drink easy? Why donï¿½t you try and tell.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 				<h3> Rules </h3> 
 				 <ol>
@@ -2365,10 +2365,10 @@
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 				<h3> Rules </h3> 
 				 <ol>
-					<li>Two members event, Live Event – Two rounds </li>
+					<li>Two members event, Live Event ï¿½ Two rounds </li>
 					<li>Common event for both gender</li>
-					<li>Round one –Participants have to answer ten questions from the essay in 15 Minutes</li>
-					<li>Round two –Participants have to answer the questions asked on the basis of one image showed in projector</li>
+					<li>Round one ï¿½Participants have to answer ten questions from the essay in 15 Minutes</li>
+					<li>Round two ï¿½Participants have to answer the questions asked on the basis of one image showed in projector</li>
 				</ol>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 				<h3> Schedule </h3> 
