@@ -28,9 +28,9 @@ handlers:
   upload: post/(.*)
   application_readable: true
 
-- url: /(.*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF))$
+- url: /(.*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF|HTM|HTML))$
   static_files: \1
-  upload: .*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF)$
+  upload: .*\.(gif|png|jpg|pdf|JPG|PNG|GIF|PDF|HTM|HTML)$
   application_readable: true
 
 - url: .*admin.*
