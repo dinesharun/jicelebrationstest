@@ -25,9 +25,9 @@
 	$useEcho  = 0;
 	$mysqlerr = 0;
 	$fullName = "Guest";
-    $emailID  = "";
-    $preLevel = 0;
-	$noReg    = 0;
+  $emailID  = "";
+  $preLevel = 0;
+	$noReg    = 1;
 	$evtD = 0;
 	$evtT = 0;
 	$totEvts = 36;
