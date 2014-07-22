@@ -204,8 +204,9 @@
 		global $fullName;
 		global $evtMemberCount;
 		global $stopRegForEvt;
+    global $noReg;
 		
-    if(noReg == 0)
+    if($noReg == 0)
     {
       $query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtId . ' ORDER BY eventinfo.GROUPNAME ASC ';
 
