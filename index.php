@@ -801,7 +801,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				The tournament for Chess game.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -845,7 +845,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Know your friend. Participate with your dear friend .
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -889,7 +889,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Mind your words. Not here. Time to play with words.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -937,7 +937,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Try to balance a balloon simply by blowing.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -981,7 +981,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Sing a song of your choice. Chance for JASMINATES to be SUPER SINGERS.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1025,7 +1025,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Playing mind games. Not everyone can remember everything. Let�s find how much you can remember�
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1069,7 +1069,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Come with the Aim! Go with the Gain!!<br />
 				Event for persons with good aiming capacity. Not only for them!!! ?
@@ -1115,7 +1115,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Talk for a minute. Walk with a prize. 
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1159,7 +1159,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Build your dream house not with bricks, but with cups.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1204,7 +1204,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Come dude let�s play cricket!!!
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1247,7 +1247,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event to show your physical strength, endurance, technique against your opponent. Come on lets Prove!!! 
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1289,7 +1289,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event for expressing your imagination and creativity with scissors, papers and glues.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1335,7 +1335,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event for ladies. Lets see who throw good..
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1381,7 +1381,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event for artists. Show your talent in the art of drawing.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1429,7 +1429,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event for innovative architects. Build your dream on a SOAP.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1475,7 +1475,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event for photo crazies.Single photo narrates thousands of meanings. Waiting for your turn !!!
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1522,7 +1522,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Design your innovation in digital pixels.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1568,7 +1568,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event to find the luckiest person among JASMINATES.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1614,7 +1614,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Place the bangle on a plate. Place the plate on your head. Game for fun and joy.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1658,7 +1658,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				�Action speaks louder than words�. Show your words through actions.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1703,7 +1703,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Many of us know fishing. Handle a bait to put a ring on a bottle neck. Seems easy? Try it.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1746,7 +1746,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				The tournament for Shuttle cock game.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1790,7 +1790,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Participate with a partner. You will lose and find them through this event.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1833,7 +1833,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event for �professional level� bike riders. Try to balance by driving slow.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1877,7 +1877,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Those who got six legs can participate in this event.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1920,7 +1920,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				War of Words. Participate and express the freedom of speech.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1964,7 +1964,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Is drinking a cool drink easy? Why don�t you try and tell.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2009,7 +2009,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Time to get funny. Participate to get some fun.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2052,7 +2052,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Act blind. Spot the right. Dedicated to brothers and sisters who are really visually impaired.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2098,7 +2098,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Situations may happen in life. One who manages it is the best manager.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2143,7 +2143,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Pen is mightier than the sword. But arranging disassembled pens is more than walking on a sword.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2187,7 +2187,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				The tournament for Carrom board game.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2229,7 +2229,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Arrange the pieces to get the original picture. A test of concentration.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2275,7 +2275,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Put the bouncing ball inside a bucket in a pitch.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2321,7 +2321,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Event for perfect balance. Not balancing time and work, but simply a steel pipe.
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -2366,7 +2366,7 @@
 	<!--[if !IE]> --><div class="lineSepTiny"></div><!-- <![endif]-->
 	<table style="width:100%;">
 		<tr style="width:100%;">
-			<td	<?php global $noReg; if($noReg == 0) { echo 'style="width:39%;"';}  else { echo 'style="width:99%;"'; } ?> >
+			<td	<?php { echo 'style="width:39%;"';}  ?> >
 				<h3> Description </h3>
 				Chance for being a detective. Use your logical ability to find the solution. <br />
 				"Let's show your Logic thinking,Memory capacity and finally check how clever you are !!!"
