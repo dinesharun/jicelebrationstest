@@ -117,6 +117,7 @@ int main(int argc, char* argv[])
   int currTable = CURR_TABLE_NO_INFO;
   int i, j, k;
   int teamSize;
+  int idx;
 
   if(argc >= 2)
   {
@@ -224,13 +225,13 @@ int main(int argc, char* argv[])
 
           memset(&wordBuf[0], 0, WORD_BUF_SIZE);
 
-          for(j=0;j<evtIdx;j++)
+          for(j=0,idx=0;j<evtIdx;j++)
           {
             if(evtInfo[j].evtId == i)
             {
               if(evtData[i].count == 1)
               {
-                fprintf(fp, "<tr style=\"width:100%;\"><td style=\"width:10%;border:1px solid black;font-family:philosopher;vertical-align:middle;\">' . $i . '</td>");
+                fprintf(fp, "<tr style=\"width:100%;\"><td style=\"width:10%;border:1px solid black;font-family:philosopher;vertical-align:middle;\">%d</td>", ++idx);
                 fprintf(fp, "<td style=\"width:30%;border:1px solid black;font-family:philosopher;vertical-align:middle;\"> %s </td>", &evtInfo[j].name[0]);
                 fprintf(fp, "<td style=\"width:60%;border:1px solid black;font-family:philosopher;vertical-align:middle;\">%s </td></tr>", "");
               }
@@ -246,7 +247,7 @@ int main(int argc, char* argv[])
                   }
                   teamSize = 1;
 
-                  fprintf(fp, "<tr style=\"width:100%;\"><td style=\"width:6%;border:1px solid black;font-family:philosopher;vertical-align:middle;\" rowspan=\"%d\">%d</td>", evtData[i].count, j);
+                  fprintf(fp, "<tr style=\"width:100%;\"><td style=\"width:6%;border:1px solid black;font-family:philosopher;vertical-align:middle;\" rowspan=\"%d\">%d</td>", evtData[i].count, ++idx);
                   fprintf(fp, "<td style=\"width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;\" rowspan=\"%d\">%s</td>", evtData[i].count, evtInfo[j].groupName[0]);
                   fprintf(fp, "<td style=\"width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;\"> %s </td>", evtInfo[j].name[0]);
                   fprintf(fp, "<td style=\"width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;\">%s </td></tr>", "");
@@ -263,6 +264,8 @@ int main(int argc, char* argv[])
               }
             }
           }
+
+          fprintf(fp, "</table>");
 
           fclose(fp);
           fp = NULL;
